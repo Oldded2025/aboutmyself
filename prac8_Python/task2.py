@@ -6,17 +6,23 @@
 
 def validate_user(name, age, email):
     errors = []
-    if not name or name.strip() =="":
+    if not name or name.strip() == "":
         errors.append("Имя не может быть пустым")
-    if not (0 <= age <= 120);
-         errors.append("Возраст должен быть от 0 до 120")
+    if not (0 <= age <= 120):
+        errors.append("Возраст должен быть от 0 до 120")
     if "@" not in email:
-        errors.append("Email должен солержать @")
-     return{
-         "is_valid" : len(errors)==0,
-         "errors" : errors
-                   }   
+        errors.append("Email должен содержать @")
+    return {
+        "is_valid": len(errors) == 0,
+        "errors": errors
+                }
 
 
-if __name__
-
+if __name__ == "__main__":
+    print("=== Валидатор данных пользователя ===")
+    print("тест 1 (неправильные данные):")
+    name = input("Введите имя: ")
+    age = int(input("Введите свой возраст : "))
+    email = input("Введите свой email : ")
+    print(validate_user(name, age, email))
+    
